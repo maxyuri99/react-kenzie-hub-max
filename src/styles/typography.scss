@@ -1,0 +1,41 @@
+.paragraph {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-grey-0);
+
+    &.bold, strong {
+        font-weight: 800;
+    }
+
+    &.grey1 {
+        color: var(--color-grey-1);
+    }
+
+    &.small {
+        font-size: 13px;
+    }
+
+    &.center{
+        text-align: center;
+    }
+
+    &.negative {
+        color: var(--color-negative);
+    }
+} 
+
+.title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.3rem, 5vw, 2.125rem);
+    font-weight: 800;
+    color: var(--color-grey-0);
+
+    &.center{
+        text-align: center;
+    }
+
+    &.small {
+        font-size: clamp(18px, 5vw, 22px);
+    }
+}

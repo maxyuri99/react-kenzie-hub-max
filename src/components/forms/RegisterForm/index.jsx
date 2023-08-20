@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { api } from "../../../services/api"
 import { useState } from "react"
 import { registerFormSchema } from "./registerFormSchema"
+import { toast } from "react-toastify"
+import styles from "./style.module.scss"
 
 export const RegisterForm = () => {
     const {
@@ -27,11 +29,11 @@ export const RegisterForm = () => {
             setLoading(true)
             await api.post("/users", formData)
             navigate("/")
-            alert("Cadastro realizado com sucesso!")
-            console.log("Cadastro realizado com sucesso!")
+            toast.success("Cadastro realizado com sucesso!")
         } catch (error) {
             if (error.response?.data.message) {
-                alert("Usuário já cadastrado")
+                console.log(error.response?.data.message)
+                toast.error("Usuário já cadastrado")
             }
         } finally {
             setLoading(false)
@@ -39,11 +41,11 @@ export const RegisterForm = () => {
     }
 
     const submit = (formData) => {
+        const selectedOption = options.find((option) => option.value === selectedModule)
         const dataWithModule = {
             ...formData,
-            module: selectedModule,
+            course_module: selectedOption ? selectedOption.label : "",
         }
-        console.log(dataWithModule)
         userRegister(dataWithModule)
     }
 
@@ -55,7 +57,7 @@ export const RegisterForm = () => {
     ]
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(submit)} className={styles.flexBox}>
             <Input
                 label="Nome"
                 type="text"
@@ -117,12 +119,11 @@ export const RegisterForm = () => {
             />
 
             <div>
-                <button type="submit">
+                <button type="submit" className="btn solid primaryNegative full">
                     {loading ? "Cadastrando..." : "Cadastrar"}
                 </button>
             </div>
-
-
+            
         </form>
     )
 }

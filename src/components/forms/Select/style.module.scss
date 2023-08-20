@@ -1,0 +1,66 @@
+.flexBox {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 1rem;
+    }
+
+    &>div:first-child {
+        height: 3rem;
+
+        padding: 0 1.01519rem;
+        border-radius: 0.25rem;
+        background: var(--color-grey-2);
+    }
+}
+
+.itensBox {
+    display: flex;
+    flex-direction: column;
+
+    padding: 9px;
+
+    background: var(--color-grey-1);
+    border-radius: 0.3125rem;
+    gap: 5px;
+}
+
+.divBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 3rem;
+
+    padding: 0 1.01519rem;
+    border-radius: 0.25rem;
+    background: var(--color-grey-2);
+
+    gap: 5px;
+
+    &>div:first-child {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.childDivBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    &>div:first-child {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    height: 3rem;
+
+    padding: 0 1.01519rem;
+    border-radius: 0.25rem;
+    background: var(--color-grey-2);
+}

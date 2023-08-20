@@ -13,7 +13,5 @@ export const registerFormSchema = z.object({
         .regex(/[!@#$%^&*()_+{}\[\]:;<>,.?\\/]+/, "É nescessário conter pelo menos um caracter especial"),
     confirmPassword: z.string().nonempty("Confirmar a senha é obrigatório"),
     bio: z.string().nonempty("É obrigatório adicionar uma biografia"),
-    contact: z.string().nonempty("O contato é obrigatório"),
-    module: z.string()
-
+    contact: z.string().nonempty("O contato é obrigatório")
 })
