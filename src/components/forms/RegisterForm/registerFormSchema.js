@@ -14,4 +14,7 @@ export const registerFormSchema = z.object({
     confirmPassword: z.string().nonempty("Confirmar a senha é obrigatório"),
     bio: z.string().nonempty("É obrigatório adicionar uma biografia"),
     contact: z.string().nonempty("O contato é obrigatório")
-})
+}).refine(({password, confirmPassword}) => password === confirmPassword, {
+    message: "As senhas não correspondem",
+    path: ["confirmPassword"]
+} )
